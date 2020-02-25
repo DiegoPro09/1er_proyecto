@@ -21,9 +21,12 @@
 		<title>INGRESOS</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="../css/Estilo.css">
+		<link rel="stylesheet" type="text/css" href="../css/alertify.css">
+		<link rel="stylesheet" type="text/css" href="../css/default.css">
 		<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<script language="javascript" src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/alertify.js"></script>
 		<script language="javascript">
 	      $(document).ready(function(){
 	        $("#Tipo").change(function () {
@@ -76,18 +79,17 @@
 
 		<!-- Termina Nav -->
 		<!-- Formulario Ingreso de Datos -->
-		<!-- action="enviar()" method="post"-->
 
 		<div class="Form_Posic3">
 			<div class="card" style="width: 50rem;">
 				<div class="card-body Fondo_Form">
 				  	<h3>REGISTRO DE DATOS</h3>
-				    <form action="../php/Registrar_U.php" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+					  <form>
 						<p>
 							<div class="form-row">
 							    <div class="col-md-12">
-									<label for="Ingrese_F">Inserte Imagen</label>
-									<input type="file" name="Imagen" class="form-control">
+									<label>Inserte Imagen</label>
+									<input type="file" id="Imag" class="form-control">
 								</div>
 							</div>
 						</p>
@@ -95,15 +97,15 @@
 						<p>
 							<div class="form-row">
 							    <div class="col-md-6">
-						     	  	<label for="validationCustom02">Nombre/s</label>
-							      	<input type="text" name="Nombre_R" class="form-control" id="validationCustom01" placeholder="Nombre/s" required>
+						     	  	<label>Nombre/s</label>
+							      	<input type="text" id="Nombre_R" class="form-control" placeholder="Nombre/s" required>
 								  	<div class="invalid-feedback">
 							      		Debe ingresar el Nombre
 								  	</div>
 								</div>
 								<div class="col-md-6">
-									<label for="validationCustom03">Apellido/s</label>
-								    <input type="text" name="Apellido_R" class="form-control" id="validationCustom02" placeholder="Apellido/s" required>
+									<label>Apellido/s</label>
+								    <input type="text" id="Apellido_R" class="form-control"  placeholder="Apellido/s" required>
 								    <div class="invalid-feedback">
 								    	Debe ingresar el Apellido
 								    </div>
@@ -113,8 +115,8 @@
 
 						<div class="form-row">
 						  	<div class="col-md-4">
-								<label for="validationCustom04">Documento: Tipo</label>
-							    <select name="Tipo_Doc" class="form-control" id="validationCustom02" required>
+								<label>Documento: Tipo</label>
+							    <select id="Tipo_Doc" class="form-control" required>
 								    <option></option>
 							    	<option>DNI</option>
 								    <option>CI</option>
@@ -126,15 +128,15 @@
 								</div>
 							</div>
 						  	<div class="col-md-4">
-							  	<label for="validationCustom05">Numero</label>
-						      	<input type="text" name="Numero_Doc" class="form-control" id="validationCustom05" required placeholder="Numero">
+							  	<label>Numero</label>
+						      	<input type="text" id="Numero_Doc" class="form-control" required placeholder="Numero">
 						      	<div class="invalid-feedback">
 							    	Debe ingresar el numero de documento
 								</div>
 						    </div>
 						    <div class="col-md-4">
-							  	<label for="validationCustom06">Fecha</label>
-						      	<input type="date" name="Fecha_H" class="form-control" id="validationCustom06" required>
+							  	<label>Fecha</label>
+						      	<input type="date" id="Fecha_H" class="form-control" required>
 						      	<div class="invalid-feedback">
 							    	Debe ingresar la fecha
 								</div>
@@ -144,15 +146,15 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-6">
-								  	<label for="validationCustom07">Certificado de Reincidencia</label>
-							      	<input type="date" name="Cert_R" class="form-control" id="validationCustom07" required>
+								  	<label>Certificado de Reincidencia</label>
+							      	<input type="date" id="Cert_R" class="form-control" required>
 							      	<div class="invalid-feedback">
 							    		Debe ingresar la fecha
 									</div>
 								</div>
 								<div class="col-md-6">
-									<label for="validationCustom09">Vencimiento</label>
-								    <input type="date" name="Venci_C_R" class="form-control" id="validationCustom09" required>
+									<label>Vencimiento</label>
+								    <input type="date" id="Venci_C_R" class="form-control" required>
 								    <div class="invalid-feedback">
 							    		Debe ingresar la fecha de vencimiento
 									</div>
@@ -161,15 +163,15 @@
 						</p>
 							<div class="form-row">
 								<div class="col-md-6">
-								  	<label for="validationCustom08">Certificado de Buena Conducta</label>
-							     	<input type="date" name="Cert_B_C" class="form-control" id="validationCustom08" required>
+								  	<label>Certificado de Buena Conducta</label>
+							     	<input type="date" id="Cert_B_C" class="form-control" required>
 							     	<div class="invalid-feedback">
 							    		Debe ingresar la fecha
 									</div>
 							  	</div>
 							  	<div class="col-md-6">
-									<label for="validationCustom09">Vencimiento</label>
-								    <input type="date" name="Venci_C" class="form-control" id="validationCustom09" required>
+									<label>Vencimiento</label>
+								    <input type="date" id="Venci_C" class="form-control" required>
 								    <div class="invalid-feedback">
 							    		Debe ingresar la fecha de vencimiento
 									</div>
@@ -179,29 +181,29 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-2">
-									<label for="validationCustom10">Hora de ingreso</label>
-									<input type="time" name="Hora_I" class="form-control" id="validationCustom10" required>
+									<label>Hora de ingreso</label>
+									<input type="time" id="Hora_I" class="form-control" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar la hora de ingreso
 									</div>
 								</div>
 								<div class="col-md-2">
-									<label for="validationCustom11">Hora de Egreso</label>
-									<input type="time" name="Hora_E" class="form-control" id="validationCustom11" required>
+									<label>Hora de Egreso</label>
+									<input type="time" id="Hora_E" class="form-control" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar la hora de egreso
 									</div>
 								</div>
 								<div class="col-md-2">
-									<label for="validationCustom12">Sector</label>
-									<input type="text" name="Sector" class="form-control" id="validationCustom12" placeholder="Sector" required>
+									<label>Sector</label>
+									<input type="text" id="Sector" class="form-control" placeholder="Sector" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar el sector
 									</div>
 								</div>
 								<div class="col-md-6">
-									<label for="validationCustom13">Motivo</label>
-									<input type="text" name="Motivo" class="form-control" id="validationCustom13" placeholder="Motivo" required>
+									<label>Motivo</label>
+									<input type="text" id="Motivo" class="form-control" placeholder="Motivo" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar el motivo
 									</div>
@@ -212,15 +214,15 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-6">
-									<label for="validationCustom14">Fecha de Alta</label>
-									<input type="date" name="Fecha_A" class="form-control" id="validationCustom14"required>
+									<label>Fecha de Alta</label>
+									<input type="date" id="Fecha_A" class="form-control" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar la fecha de alta
 									</div>
 								</div>
 								<div class="col-md-6">
-									<label for="validationCustom15">Fecha de Baja</label>
-									<input type="date" name="Fecha_B" class="form-control" id="validationCustom15" required>
+									<label>Fecha de Baja</label>
+									<input type="date" id="Fecha_B" class="form-control" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar la fecha de baja
 									</div>
@@ -233,15 +235,15 @@
 					    <p>
 							<div class="form-row">
 							    <div class="col-md-6">
-						     	  	<label for="validationCustom16">Modelo</label>
-							      	<input type="text" name="Modelo_V" class="form-control" id="validationCustom16" placeholder="Modelo" required>
+						     	  	<label>Modelo</label>
+							      	<input type="text" id="Modelo_V" class="form-control" placeholder="Modelo" required>
 							      	<div class="invalid-feedback">
 							    		Debe ingresar el modelo del vehiculo
 									</div>
 							    </div>
 							    <div class="col-md-6">
-								  	<label for="validationCustom17">Dominio</label>
-							      	<input type="text" name="Dominio_V" class="form-control" id="validationCustom17" placeholder="Dominio" required>
+								  	<label>Dominio</label>
+							      	<input type="text" id="Dominio_V" class="form-control" placeholder="Dominio" required>
 							      	<div class="invalid-feedback">
 							    		Debe ingresar el dominio/patente del vehiculo
 									</div>
@@ -252,15 +254,15 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-6">
-									<label for="validationCustom18">Licencia de Conducir</label>
-							      	<input type="text" name="Lic_Cond" class="form-control" id="validationCustom18" placeholder="Licencia de Conducir" required>
+									<label>Licencia de Conducir</label>
+							      	<input type="text" id="Lic_Cond" class="form-control" placeholder="Licencia de Conducir" required>
 							      	<div class="invalid-feedback">
 							    		Debe ingresar si tiene licencia de conducir
 									</div>
 							  	</div>
 								<div class="col-md-6">
-									<label for="validationCustom19">Vencimiento</label>
-								    <input type="date" name="Vencimiento_C" class="form-control" id="validationCustom19" required>
+									<label>Vencimiento</label>
+								    <input type="date" id="Vencimiento_C" class="form-control" required>
 								    <div class="invalid-feedback">
 							    		Debe ingresar el vencimiento de la licencia
 									</div>
@@ -271,22 +273,22 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-4">
-							    	<label for="validationCustom20">Seguro</label>
-									<input type="text" name="Seguro_V" class="form-control" id="validationCustom20" placeholder="Seguro" required>
+							    	<label>Seguro</label>
+									<input type="text" id="Seguro_V" class="form-control" placeholder="Seguro" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar el seguro
 									</div>
 								</div>
 								<div class="col-md-4">
-									<label for="validationCustom21">Poliza</label>
-								    <input type="text" name="Poliza_V" class="form-control" id="validationCustom21" placeholder="Poliza" required>
+									<label>Poliza</label>
+								    <input type="text" id="Poliza_V" class="form-control" placeholder="Poliza" required>
 								    <div class="invalid-feedback">
 							    		Debe ingresar la poliza
 									</div>
 								</div>
 								<div class="col-md-4">
-									<label for="validationCustom22">Vencimiento</label>
-									<input type="date" name="Vencimiento_P" class="form-control" id="validationCustom22" required>
+									<label>Vencimiento</label>
+									<input type="date" id="Vencimiento_P" class="form-control" required>
 									<div class="invalid-feedback">
 							    		Debe ingresar el vencimiento
 									</div>
@@ -297,8 +299,8 @@
 						<p>
 							<div class="form-row">
 								<div class="form-group col-md-6">
-								  <label for="validationCustom22">Tipo de vehiculo</label>
-					              <select name="Tipo_V" id="Tipo" class="form-control">
+								  <label>Tipo de vehiculo</label>
+					              <select id="Tipo" class="form-control">
 					                <option selected value="0"></option>
 					                <?php while($row = $resultado->fetch_assoc()) { ?>
 					                  <option value="<?php echo $row['idTipo']; ?>"><?php echo $row['Tipo_N']; ?></option>
@@ -306,8 +308,8 @@
 					              </select>
 					            </div>
 					            <div class="form-group col-md-6">
-					            <label for="validationCustom22">Opcion</label>
-					              <select name="Op_Tipo_V" id="Opcion" class="form-control"></select>
+					            <label>Opcion</label>
+					              <select id="Opcion" class="form-control"></select>
 					            </div>
 							</div>
 						</p>
@@ -317,12 +319,12 @@
 								<label>Autorizacion Permanente:</label>
 							</div>
 							<div class="custom-control custom-radio col-md-4">
-								<input type="radio" class="custom-control-input" id="customControlValidation2" value="Si" name="Aut_Permanente" checked>
-    							<label class="custom-control-label" for="customControlValidation2"> SI </label>
+								<input type="radio" class="custom-control-input" name="A_P" value="SI" id="Aut_Permanente" checked required>
+    							<label class="custom-control-label"> SI </label>
 							</div>
 							<div class="custom-control custom-radio col-md-4">
-								<input type="radio" class="custom-control-input" id="customControlValidation3" value="No" name="Aut_Permanente" required>
-    							<label class="custom-control-label" for="customControlValidation3"> NO </label>
+								<input type="radio" class="custom-control-input" name="A_P" value="No" id="Aut_Permanente" required>
+    							<label class="custom-control-label"> NO </label>
 							</div>
 						</div>
 
@@ -331,8 +333,8 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-6">
-									<label for="validationCustom26">Tipo</label>
-									<select name="Tipo_Novedad" class="form-control" id="validationCustom26" required>
+									<label>Tipo</label>
+									<select id="Tipo_Novedad" class="form-control" required>
 										<option></option>
 										<option>Sancion</option>
 										<option>Perimetral</option>
@@ -344,8 +346,8 @@
 									</div>
 								</div>
 								<div class="col-md-6">
-									<label for="validationCustom27">Causa</label>
-									<input type="text" name="Causa_S" class="form-control" id="validationCustom27"placeholder="Causa">
+									<label>Causa</label>
+									<input type="text" id="Causa_S" class="form-control" placeholder="Causa">
 									<div class="invalid-feedback">
 							    		Debe ingresar la causa
 									</div>
@@ -356,15 +358,15 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-6">
-									<label for="validationCustom28">Desde</label>
-								    <input type="date" name="Desde_S" class="form-control" id="validationCustom28">
+									<label>Desde</label>
+								    <input type="date" id="Desde_S" class="form-control">
 								    <div class="invalid-feedback">
 							    		Debe ingresar desde cuando
 									</div>
 								</div>
 								<div class="col-md-6">
-									<label for="validationCustom29">Hasta</label>
-								    <input type="date" name="Hasta_S" class="form-control" id="validationCustom29">
+									<label>Hasta</label>
+								    <input type="date" id="Hasta_S" class="form-control">
 								    <div class="invalid-feedback">
 							    		Debe ingresar hasta cuando
 									</div>
@@ -375,8 +377,8 @@
 						<p>
 							<div class="form-row">
 								<div class="col-md-12">
-									<label for="validationCustom30">Descripcion:</label>
-								    <textarea rows="4" cols="50" name="Descripcion_N" class="form-control" id="validationCustom30" placeholder="Agregue una descripcion">
+									<label>Descripcion:</label>
+								    <textarea rows="4" cols="50" id="Descripcion_N" class="form-control">
 									</textarea>
 									<div class="invalid-feedback">
 							    		Debe ingresar una descripcion
@@ -387,7 +389,7 @@
 
 						<div class="form-row">
 							<div class="col-md-6">
-								<input value="Cargar" type="submit" class="btn btn-outline-light">
+								<span class="btn btn-outline-light" id="Cargar">Cargar</span>
 							</div>
 						</div>
 					</form>
@@ -397,52 +399,11 @@
 
 
 
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	    <script src="js/bootstrap.min.js"></script>
+	    <script src="../js/bootstrap.min.js"></script>
 	    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-	    <script>
-			// Example starter JavaScript for disabling form submissions if there are invalid fields
-			(
-				function()
-				{
-				  'use strict';
-				  window.addEventListener
-				  (
-				  	'load', function()
-					  {
-					    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-					    var forms = document.getElementsByClassName('needs-validation');
-					    // Loop over them and prevent submission
-					    var validation = Array.prototype.filter.call
-					    (
-					    	forms, function(form)
-						    {
-						      form.addEventListener
-						      (
-						      	'submit', function(event)
-							      {
-							        if (form.checkValidity() === false)
-							        {
-							          event.preventDefault();
-							          event.stopPropagation();
-							        }
-							        form.classList.add('was-validated');
-							      },
-							      false
-						      );
-						    }
-					    );
-					  },
-					  false
-				  );
-				}
-			)
-			();
-		</script>
 		<script>
 	      $(document).ready(function(){
 	        $(window).scroll(function(){
@@ -465,6 +426,60 @@
 	          }
 	        });
 	       });
+
+
+		   $(document).ready(function(){
+				$('#Cargar').click(function(){
+					cadena= "imagen=" + $('#Imag').val() +  
+							"&nombre=" + $('#Nombre_R').val() +
+							"&apellido=" + $('#Apellido_R').val() +
+							"&tipo_doc=" + $('#Tipo_Doc').val() + 
+							"&num_doc=" + $('#Numero_Doc').val() + 
+							"&fecha_h=" + $('#Fecha_H').val() + 
+							"&cert_reinc=" + $('#Cert_R').val() +
+							"&venc_r=" + $('#Venci_C_R').val() +
+							"&cert_b=" + $('#Cert_B_C').val() +
+							"&venci_c=" + $('#Venci_C').val() + 
+							"&hora_i=" + $('#Hora_I').val() + 
+							"&hora_e=" + $('#Hora_E').val() + 
+							"&sector=" + $('#sector').val() +
+							"&motivo=" + $('#Motivo').val() +
+							"&fecha_a=" + $('#Fecha_A').val() +
+							"&fecha_b=" + $('#Fecha_B').val() + 
+							//Datos del Vehiculo
+							"&modelo_v=" + $('#Modelo_V').val() + 
+							"&dominio=" + $('#Dominio_V').val() + 
+							"&licencia=" + $('#Lic_Cond').val() +
+							"&venc_l=" + $('#Vencimiento_C').val() +
+							"&seguro=" + $('#Seguro_V').val() +
+							"&poliza=" + $('#Poliza_V').val() + 
+							"&venci_p=" + $('#Vencimiento_P').val() + 
+							"&tipo=" + $('#Tipo').val() + 
+							"&opcion=" + $('#Opcion').val() +
+							//Autorizacion
+							"&aut_perm=" + $('#Aut_Permanente').val() +
+							//Novedades
+							"&tipo_n=" + $('#Tipo_Novedad').val() +
+							"&causa=" + $('#Causa_S').val() + 
+							"&desde=" + $('#Desde_S').val() + 
+							"&hasta=" + $('#Hasta_S').val() + 
+							"&descripcion=" + $('#Descripcion_N').val(); 
+
+					$.ajax({
+						type:"POST",
+						url:"../php/Register.php",
+						data:cadena,
+						success:function(r){
+							if(r==1){
+								alertify.success("Datos cargados con exito");
+							}else{
+								alertify.error("Error al cargar: Usuario ya registrado o se ha ingresado mal un campo..");
+							}
+						}
+					});
+					
+				});
+			});
 	    </script>
 	</body>
 </html>

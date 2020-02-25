@@ -21,31 +21,31 @@
 						<div class="form-row">
 							<div class="col">
 								<label>Nombre/s</label>
-								<input type="text" class="form-control input-sm" id="Nombre_RU" name="">
+								<input type="text" class="form-control input-sm" id="Nombre_RU" placeholder="Nombre" name="">
 							</div>
 							<div class="col">
 								<label>Apellido</label>
-								<input type="text" class="form-control input-sm" id="Apellido_RU" name="">
+								<input type="text" class="form-control input-sm" id="Apellido_RU" placeholder="Apellido" name="">
 							</div>
 						</div>
 					</p>
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" class="form-control input-sm" id="Email_RU" name="">
+						<input type="email" class="form-control input-sm" id="Email_RU" placeholder="ejemplo@gmail.com" name="">
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label>Contraseña</label>
-							<input type="password" class="form-control input-sm" id="Contrasena_RU" name="">
+							<input type="password" class="form-control input-sm" id="Contrasena_RU" placeholder="Contraseña" name="">
 						</div>
 						<div class="form-group col-md-6">
 							<label>Verificar Contraseña</label>
-							<input type="password" class="form-control input-sm" id="Verif_Cont_RU" name="">
+							<input type="password" class="form-control input-sm" id="Verif_Cont_RU" placeholder="Verificar Contraseña" name="">
 						</div>
 					</div>
 					<div class="form-group">
 						<label>Numero de verificacion</label>
-						<input type="password" class="form-control input-sm" id="Num_Ver_RU" name="">
+						<input type="password" class="form-control input-sm" id="Num_Ver_RU" placeholder="Numero de verificacion" name="">
 					</div>
 					<span class="Trans btn btn-primary" id="Registrar_N">Registrar</span>
 					<a href="../Index.php">
@@ -54,50 +54,6 @@
 			  	</div>
 			</div>
 		</div>
-
-
-
-
-
-		<script>
-			// Example starter JavaScript for disabling form submissions if there are invalid fields
-			(
-				function()
-				{
-				  'use strict';
-				  window.addEventListener
-				  (
-				  	'load', function()
-					  {
-					    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-					    var forms = document.getElementsByClassName('needs-validation');
-					    // Loop over them and prevent submission
-					    var validation = Array.prototype.filter.call
-					    (
-					    	forms, function(form)
-						    {
-						      form.addEventListener
-						      (
-						      	'submit', function(event)
-							      {
-							        if (form.checkValidity() === false)
-							        {
-							          event.preventDefault();
-							          event.stopPropagation();
-							        }
-							        form.classList.add('was-validated');
-							      },
-							      false
-						      );
-						    }
-					    );
-					  },
-					  false
-				  );
-				}
-			)
-			();
-		</script>
 
 		<script>
 			$(document).ready(function(){
@@ -122,7 +78,7 @@
 								if(r==1){
 									alertify.success("Usuario registrado con exito");
 								}else{
-									alertify.error("Usuario ya registrado");
+									alertify.error("Error al registrar");
 								}
 							}
 						});

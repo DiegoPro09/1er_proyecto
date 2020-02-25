@@ -8,7 +8,7 @@
   if(isset($Email)){
     //Inicio de variable de sesion
     session_start();
-    $consul = "SELECT * FROM registro_usuario WHERE Email = '$Email' AND Contrasena = '$Contrasenia'";
+    $consul = "SELECT * FROM registro_usuario WHERE Email = '$Email' AND Contrasena = '$Contrasena'";
     $Resultado = mysqli_query($conn, $consul);
     $Fila = mysqli_fetch_array($Resultado);
     

@@ -7,48 +7,48 @@
 		header("location: ../index.html");
 	}
 
-	$Foto = $_FILES["Imagen"]["name"];
-	$Ruta = $_FILES["Imagen"]["tmp_name"];
+	$Foto = $_FILES["imagen"]["name"];
+	$Ruta = $_FILES["imagen"]["tmp_name"];
 	$Destino = "../img/".$Foto;
 	copy($Ruta, $Destino);
 
   //Datos basicos del residente
-	$Nombre_R = $_POST['Nombre_R'];
-	$Apellido_R = $_POST['Apellido_R'];
-	$Doc = $_POST['Tipo_Doc'];
-	$Num_Doc = $_POST['Numero_Doc'];
-	$Fecha_H = $_POST['Fecha_H'];
-	$Cert_Reinc = $_POST['Cert_R'];
-	$Venc_R = $_POST["Venci_C_R"];
-  	$Cert_B = $_POST['Cert_B_C'];
-	$Vencimieto_C = $_POST['Venci_C'];
-	$Hora_I = $_POST['Hora_I'];
-	$Hora_E = $_POST['Hora_E'];
-	$Sector = $_POST['Sector'];
-	$Motivo = $_POST['Motivo'];
- 	$Fecha_A = $_POST['Fecha_A'];
-	$Fecha_B = $_POST['Fecha_B'];
+	$Nombre_R = $_POST['nombre'];
+	$Apellido_R = $_POST['apellido'];
+	$Doc = $_POST['tipo_doc'];
+	$Num_Doc = $_POST['num_doc'];
+	$Fecha_H = $_POST['fecha_h'];
+	$Cert_Reinc = $_POST['cert_reinc'];
+	$Venc_R = $_POST["venc_r"];
+  	$Cert_B = $_POST['cert_b'];
+	$Vencimieto_C = $_POST['venci_c'];
+	$Hora_I = $_POST['hora_i'];
+	$Hora_E = $_POST['hora_e'];
+	$Sector = $_POST['sector'];
+	$Motivo = $_POST['motivo'];
+ 	$Fecha_A = $_POST['fecha_a'];
+	$Fecha_B = $_POST['fecha_b'];
     
     //Datos del Vehiculo
-    $Model_V= $_POST['Modelo_V'];
-    $Dominio_V = $_POST['Dominio_V'];
-    $Licencia = $_POST['Lic_Cond'];
-    $Venc_L = $_POST['Vencimiento_C'];
-    $Seguro = $_POST['Seguro_V'];
-    $Poliza = $_POST['Poliza_V'];
-    $Venci_P = $_POST['Vencimiento_P'];
-    $Tipo_V = $_POST['Tipo_V'];
-    $Op_V = $_POST['Op_Tipo_V'];
+    $Model_V= $_POST['modelo_v'];
+    $Dominio_V = $_POST['dominio'];
+    $Licencia = $_POST['licencia'];
+    $Venc_L = $_POST['venc_l'];
+    $Seguro = $_POST['seguro'];
+    $Poliza = $_POST['poliza'];
+    $Venci_P = $_POST['venci_p'];
+    $Tipo_V = $_POST['tipo'];
+    $Op_V = $_POST['opcion'];
 
     //Autorizacion
-	$Aut_Perm = $_POST['Aut_Permanente'];
+	$Aut_Perm = $_POST['aut_perm'];
 
     //Novedades
-	$Tipo_N = $_POST['Tipo_Novedad'];
-	$Causa = $_POST['Causa_S'];
-	$Desde = $_POST['Desde_S'];
-	$Hasta = $_POST['Hasta_S'];
-	$Descripcion = $_POST['Descripcion_N'];
+	$Tipo_N = $_POST['tipo_n'];
+	$Causa = $_POST['causa'];
+	$Desde = $_POST['desde'];
+	$Hasta = $_POST['hasta'];
+	$Descripcion = $_POST['descripcion'];
 
 	$Nombr_u = $_SESSION['Nombre'];
 
@@ -65,7 +65,7 @@
 		VALUES ('$Tipo_N', '$Causa', '$Desde', '$Hasta', '$Descripcion', '$Num_Doc')";
 
 		if ($conn->query($sql) === TRUE && $conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE && $conn->query($sql3) === TRUE) {
-			header("location: ../enlaces/Ingresos.php");
+			echo 1;
 		}
 		else
 		{

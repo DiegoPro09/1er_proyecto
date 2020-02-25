@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="css/default.css">
 		<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="js/alertify.js"></script>
 	</head>
 	<body class="Fondo_Princ">
