@@ -52,26 +52,53 @@
 
 	$Nombr_u = $_SESSION['Nombre'];
 
+	if(BuscarRepetido($Num_Doc, $Dominio_V, $conn) == 1) {
+		echo 2;
+	}
+	else{
 		$sql = "INSERT INTO ingreso_personas(Nombre, Apellido, Tipo, DNI, VencimientoDNI, Cert_Reincidencia, Vencimiento_R, Cert_BuenaConducta, VencimientoCERT, Hora_Ingreso, Hora_Egreso, Sector, Motivo, Fecha_Alta, Fecha_Baja, Foto)
 		VALUES ('$Nombre_R', '$Apellido_R', '$Doc', '$Num_Doc', '$Fecha_H', '$Cert_Reinc', '$Venc_R', '$Cert_B', '$Vencimieto_C', '$Hora_I', '$Hora_E', '$Sector', '$Motivo', '$Fecha_A', '$Fecha_B', '$Destino')";
+		echo $Result = mysqli_query($conn, $sql);
 
 		$sql1 ="INSERT INTO vehiculo (Dueno, Modelo, Dominio, Licencia_Conducir, VencimientoLICENCIA, Seguro, Poliza, VencimientoSEGURO, Tipo_Vehiculo, Opcion_V)
 		VALUES ('$Num_Doc', '$Model_V', '$Dominio_V', '$Licencia', '$Venc_L', '$Seguro', '$Poliza', '$Venci_P', '$Tipo_V', '$Op_V')";
-
+		echo $Result2 = mysqli_query($conn, $sql1);
+		
 		$sql2 ="INSERT INTO autorizacion (AutorizadoDNI, AutorizadoNombre, Autorizado_Permanente, Autorizado_Por)
 		VALUES ('$Num_Doc', '$Nombre_R', '$Aut_Perm', '$Nombr_u')";
-
+		echo $Result3 = mysqli_query($conn, $sql2);
+		
 		$sql3 = "INSERT INTO novedades (Tipo_N, Causa, Desde, Hasta, Descripcion, Residente)
 		VALUES ('$Tipo_N', '$Causa', '$Desde', '$Hasta', '$Descripcion', '$Num_Doc')";
+		echo $Result4 = mysqli_query($conn, $sql3);	
+	}
 
-		if ($conn->query($sql) === TRUE && $conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE && $conn->query($sql3) === TRUE) {
-			echo 1;
-		}
-		else
-		{
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
 
+	function BuscarRepetido($Dni,$Dominio,$conn){
+		$Ver = "SELECT Ficha_N, Nombre, Apellido, DNI, Tipo, VencimientoDNI, Cert_Reincidencia,
+                    Vencimiento_R, Cert_BuenaConducta, VencimientoCERT, Sector, Motivo, Hora_Ingreso,
+                    Hora_Egreso, Fecha_Alta, Fecha_Baja, (vehiculo.Modelo), (vehiculo.Dominio),
+                    (Licencia_Conducir), (vehiculo.VencimientoLICENCIA),
+                    (vehiculo.Seguro), (vehiculo.Poliza), (vehiculo.VencimientoSEGURO),
+                    (vehiculo.Tipo_Vehiculo), (vehiculo.Opcion_V), (autorizacion.AutorizacionNRO),
+                    (autorizacion.AutorizadoNombre), (autorizacion.AutorizadoDNI),
+                    (autorizacion.Autorizado_Por), (autorizacion.Autorizado_Permanente),
+                    (novedades.Tipo_N), (novedades.Causa), (novedades.Desde), (novedades.Hasta),
+                    (novedades.Descripcion)
+                FROM ingreso_personas
+                INNER JOIN Vehiculo ON ingreso_personas.DNI = vehiculo.Dueno
+                INNER JOIN Autorizacion ON ingreso_personas.DNI = autorizacion.AutorizadoDNI
+                INNER JOIN Novedades ON ingreso_personas.DNI = novedades.Residente
+				WHERE DNI = $Num_Doc AND Dominio = $Dominio_V";
+		$Resu = mysqli_query($conn, $Ver);
+
+		if(mysqli_num_rows($Resu) > 0){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
 
 	$conn->close();
 ?>

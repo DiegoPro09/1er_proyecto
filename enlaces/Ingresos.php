@@ -84,7 +84,7 @@
 			<div class="card" style="width: 50rem;">
 				<div class="card-body Fondo_Form">
 				  	<h3>REGISTRO DE DATOS</h3>
-					  <form>
+					  <form enctype="multipart/form-data">
 						<p>
 							<div class="form-row">
 							    <div class="col-md-12">
@@ -442,7 +442,7 @@
 							"&venci_c=" + $('#Venci_C').val() + 
 							"&hora_i=" + $('#Hora_I').val() + 
 							"&hora_e=" + $('#Hora_E').val() + 
-							"&sector=" + $('#sector').val() +
+							"&sector=" + $('#Sector').val() +
 							"&motivo=" + $('#Motivo').val() +
 							"&fecha_a=" + $('#Fecha_A').val() +
 							"&fecha_b=" + $('#Fecha_B').val() + 
@@ -467,13 +467,16 @@
 
 					$.ajax({
 						type:"POST",
-						url:"../php/Register.php",
+						url:"../php/Registrar_U.php",
 						data:cadena,
 						success:function(r){
-							if(r==1){
+							if (r==2) {
+								alertify.success("Usuario ya registrado");
+							}
+							else if(r==1){
 								alertify.success("Datos cargados con exito");
 							}else{
-								alertify.error("Error al cargar: Usuario ya registrado o se ha ingresado mal un campo..");
+								alertify.error("Error al cargar: Se ha ingresado mal un campo..");
 							}
 						}
 					});
